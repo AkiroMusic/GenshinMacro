@@ -21,9 +21,10 @@ public class RotationWorker : MacroWorkerBase
     {
         while (!_cts.IsCancellationRequested)
         {
-            if (buttonState.IsXButton1Pressed())
+            if (buttonState.IsXButton1Pressed() && 
+                Monitor.TryEnter(InputLock.SyncRoot, TimeSpan.FromMilliseconds(10)))
             {
-                lock (InputLock.SyncRoot)
+                try
                 {
                     for (int i = 0; i < SubSteps; i++)
                     {
@@ -36,13 +37,12 @@ public class RotationWorker : MacroWorkerBase
                         Thread.Sleep(SubStepDelayMs);
                     }
                 }
+                finally
+                {
+                    Monitor.Exit(InputLock.SyncRoot);
+                }
             }
-            try
-            {
-                Task.Delay(PollIntervalMs, _cts.Token).Wait(_cts.Token);
-            }
-            catch (OperationCanceledException) { break; }
-            catch (AggregateException) { break; }
+            Thread.Sleep(PollIntervalMs);
         }
     }
 }

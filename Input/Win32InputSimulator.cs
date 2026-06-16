@@ -30,7 +30,7 @@ public class Win32InputSimulator : IInputSimulator
         if (result == 0)
         {
             var error = Marshal.GetLastWin32Error();
-            System.Diagnostics.Debug.WriteLine($"SendInput failed. Win32 error: {error}");
+            System.Diagnostics.Trace.WriteLine($"SendInput failed. Win32 error: {error}");
             return false;
         }
         return true;
@@ -43,8 +43,19 @@ public class Win32InputSimulator : IInputSimulator
 
     public bool RightClick()
     {
-        if (!RightButtonDown()) return false;
-        return RightButtonUp();
+        var inputs = new INPUT[]
+        {
+            CreateMouseInput(MouseEventFlags.MOUSEEVENTF_RIGHTDOWN),
+            CreateMouseInput(MouseEventFlags.MOUSEEVENTF_RIGHTUP)
+        };
+        var result = NativeMethods.SendInput((uint)inputs.Length, inputs, Marshal.SizeOf<INPUT>());
+        if (result == 0)
+        {
+            var error = Marshal.GetLastWin32Error();
+            System.Diagnostics.Trace.WriteLine($"SendInput (RightClick) failed. Win32 error: {error}");
+            return false;
+        }
+        return true;
     }
 
     public bool LeftButtonDown()

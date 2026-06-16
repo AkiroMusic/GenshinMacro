@@ -95,6 +95,9 @@ public partial class MainWindow : Window
         {
             File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] MainWindow: {message}\n");
         }
-        catch { }
+        catch (Exception logEx)
+        {
+            System.Diagnostics.Trace.WriteLine($"Failed to write debug log: {logEx.Message}");
+        }
     }
 }

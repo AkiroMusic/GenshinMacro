@@ -10,6 +10,7 @@ public class MacroCoordinator
     private readonly DoubleClickWorker _doubleClick = new();
     private readonly IInputSimulator _inputSim;
     private readonly IButtonStateProvider _buttonState;
+    private bool _started;
 
     public MacroCoordinator(IInputSimulator inputSim, IButtonStateProvider buttonState)
     {
@@ -23,6 +24,8 @@ public class MacroCoordinator
 
     public void StartAll()
     {
+        if (_started) return;
+        _started = true;
         _rotation.OnError += OnWorkerError;
         _doubleClick.OnError += OnWorkerError;
         _rotation.Start(_buttonState, _inputSim);
@@ -31,6 +34,8 @@ public class MacroCoordinator
 
     public void StopAll()
     {
+        if (!_started) return;
+        _started = false;
         _rotation.OnError -= OnWorkerError;
         _doubleClick.OnError -= OnWorkerError;
         _rotation.Stop();

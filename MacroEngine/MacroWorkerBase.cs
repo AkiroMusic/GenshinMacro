@@ -8,7 +8,7 @@ public abstract class MacroWorkerBase
 
     protected readonly CancellationTokenSource _cts = new();
     protected Thread? _thread;
-    protected bool _running;
+    protected volatile bool _running;
 
     public bool IsRunning => _running;
     public string? LastError { get; protected set; }
@@ -17,7 +17,17 @@ public abstract class MacroWorkerBase
     {
         if (_running) return;
         _running = true;
-        _thread = new Thread(() => Run(buttonState, inputSim))
+        _thread = new Thread(() =>
+        {
+            try
+            {
+                Run(buttonState, inputSim);
+            }
+            finally
+            {
+                _running = false;
+            }
+        })
         {
             IsBackground = true,
             Name = GetType().Name
