@@ -3,17 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="About"
         Width="320"
-        Height="280"
+        Height="300"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent"
-        FontFamily="Segoe UI">
+        FontFamily="{StaticResource FontFamily}">
 
-    <Border Background="#CC0A0E1A" CornerRadius="14" BorderBrush="#1A3A6E" BorderThickness="1">
+    <Border Background="{StaticResource WindowBg}"
+            CornerRadius="8"
+            BorderBrush="{StaticResource BorderDefault}"
+            BorderThickness="1">
         <Border.Effect>
-            <DropShadowEffect Color="#0A0E1A" BlurRadius="24" ShadowDepth="0" Opacity="0.7"/>
+            <DropShadowEffect Color="#000000" BlurRadius="20" ShadowDepth="0" Opacity="0.5"/>
         </Border.Effect>
 
         <Grid Margin="20">
@@ -28,18 +31,18 @@
                 <TextBlock Text="About"
                            FontSize="14"
                            FontWeight="SemiBold"
-                           Foreground="#E8ECF4"
+                           Foreground="{StaticResource TextPrimary}"
                            VerticalAlignment="Center"/>
                 <Border HorizontalAlignment="Right"
                         Width="24" Height="20"
                         CornerRadius="4"
                         Background="Transparent"
                         Cursor="Hand"
-                        MouseLeftButtonDown="CloseBtn_Click"
+                        MouseLeftButtonDown="CloseButton_Click"
                         VerticalAlignment="Center">
                     <TextBlock Text="✕"
                                FontSize="11"
-                               Foreground="#7B8BA8"
+                               Foreground="{StaticResource TextMuted}"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
                 </Border>
@@ -48,41 +51,36 @@
             <!-- About Content -->
             <StackPanel Grid.Row="1" Margin="0,16,0,0" HorizontalAlignment="Center">
                 <!-- App Icon -->
-                <Border Width="56" Height="56"
-                        CornerRadius="14"
-                        BorderBrush="#1A3A6E"
+                <Border Width="52" Height="52"
+                        CornerRadius="8"
+                        Background="{StaticResource CardBg}"
+                        BorderBrush="{StaticResource BorderDefault}"
                         BorderThickness="1"
                         HorizontalAlignment="Center"
                         Margin="0,0,0,12">
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#181D35" Offset="0"/>
-                            <GradientStop Color="#0D47A1" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
                     <Image Source="/logo.png"
-                           Width="32" Height="32"
+                           Width="28" Height="28"
                            RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Border>
 
                 <TextBlock Text="Genshin Macro"
                            FontSize="16"
                            FontWeight="SemiBold"
-                           Foreground="#E8ECF4"
+                           Foreground="{StaticResource TextPrimary}"
                            HorizontalAlignment="Center"/>
-                <TextBlock Text="版本 1.1.1"
+                <TextBlock Text="版本 1.2.0"
                            FontSize="11"
-                           Foreground="#7B8BA8"
+                           Foreground="{StaticResource TextMuted}"
                            HorizontalAlignment="Center"
                            Margin="0,4,0,0"/>
                 <TextBlock Text="作者：Akiro"
                            FontSize="11"
-                           Foreground="#7B8BA8"
+                           Foreground="{StaticResource TextMuted}"
                            HorizontalAlignment="Center"
                            Margin="0,2,0,0"/>
                 <TextBlock Text="原神鼠标宏工具"
                            FontSize="11"
-                           Foreground="#4A5568"
+                           Foreground="{StaticResource TextSecondary}"
                            HorizontalAlignment="Center"
                            Margin="0,8,0,0"/>
             </StackPanel>
@@ -96,25 +94,21 @@
                     Padding="0,10"
                     Margin="0,16,0,0"
                     HorizontalAlignment="Stretch"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    Foreground="#FFFFFF">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="Bd"
-                                CornerRadius="8"
+                                CornerRadius="4"
                                 Padding="0,10"
-                                BorderBrush="#1E2A4A"
-                                BorderThickness="1">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#12162A" Offset="0"/>
-                                    <GradientStop Color="#181D35" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.Background>
+                                Background="{StaticResource AccentPrimary}"
+                                BorderThickness="0">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="Bd" Property="BorderBrush" Value="#2979FF"/>
+                                <Setter TargetName="Bd" Property="Background"
+                                        Value="{StaticResource AccentPrimaryHover}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
