@@ -7,42 +7,51 @@ public class FakeInputSimulator : IInputSimulator
 {
     public List<string> CallLog { get; } = new();
     public bool ReturnValue { get; set; } = true;
+    public int? FailAfterCallCount { get; set; }
+    private int _callCount;
+
+    private bool TrackAndReturn(string call)
+    {
+        CallLog.Add(call);
+        _callCount++;
+        if (FailAfterCallCount.HasValue && _callCount > FailAfterCallCount.Value)
+            return false;
+        return ReturnValue;
+    }
 
     public bool MoveMouseBy(int deltaX, int deltaY)
     {
-        CallLog.Add($"MoveMouseBy({deltaX},{deltaY})");
-        return ReturnValue;
+        return TrackAndReturn($"MoveMouseBy({deltaX},{deltaY})");
     }
 
     public bool RightClick()
     {
-        CallLog.Add("RightClick");
-        return ReturnValue;
+        return TrackAndReturn("RightClick");
     }
 
     public bool LeftButtonDown()
     {
-        CallLog.Add("LeftButtonDown");
-        return ReturnValue;
+        return TrackAndReturn("LeftButtonDown");
     }
 
     public bool LeftButtonUp()
     {
-        CallLog.Add("LeftButtonUp");
-        return ReturnValue;
+        return TrackAndReturn("LeftButtonUp");
     }
 
     public bool RightButtonDown()
     {
-        CallLog.Add("RightButtonDown");
-        return ReturnValue;
+        return TrackAndReturn("RightButtonDown");
     }
 
     public bool RightButtonUp()
     {
-        CallLog.Add("RightButtonUp");
-        return ReturnValue;
+        return TrackAndReturn("RightButtonUp");
     }
 
-    public void Clear() => CallLog.Clear();
+    public void Clear()
+    {
+        CallLog.Clear();
+        _callCount = 0;
+    }
 }
