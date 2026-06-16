@@ -20,7 +20,7 @@ public partial class SettingsWindow : Window
         Close();
     }
 
-    private void CloseBtn_Click(object sender, MouseButtonEventArgs e)
+    private void CloseButton_Click(object sender, MouseButtonEventArgs e)
     {
         Close();
     }
