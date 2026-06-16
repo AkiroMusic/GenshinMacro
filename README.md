@@ -1,6 +1,6 @@
 # Genshin Macro
 
-原神鼠标宏工具 | 作者：Akiro | 版本 1.1.1
+原神鼠标宏工具 | 作者：Akiro | 版本 1.2.0
 
 ## 功能
 
@@ -17,7 +17,7 @@
 
 ## 下载
 
-从 [Releases](https://github.com/sglwsjxh/GenshinMacro/releases/latest) 下载最新版本
+从 [Releases](https://github.com/AkiroMusic/GenshinMacro/releases/latest) 下载最新版本
 
 ## 从源码构建
 
