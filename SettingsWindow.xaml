@@ -1,4 +1,4 @@
-<Window x:Class="GenshinMacro.SettingsWindow"
+<Window x:Class="AkiMacro.SettingsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Settings"
@@ -96,7 +96,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="20ms (旋转) / 50ms (双玛头)"
+                        <TextBlock Text="20ms (旋转) / 50ms (双键)"
                                    FontSize="12"
                                    Foreground="{StaticResource TextPrimary}"
                                    VerticalAlignment="Center"/>

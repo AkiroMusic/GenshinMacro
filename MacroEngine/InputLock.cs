@@ -1,4 +1,4 @@
-namespace GenshinMacro.MacroEngine;
+namespace AkiMacro.MacroEngine;
 
 public static class InputLock
 {

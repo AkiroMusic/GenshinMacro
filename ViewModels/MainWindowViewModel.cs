@@ -2,10 +2,10 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
-using GenshinMacro.Input;
-using GenshinMacro.MacroEngine;
+using AkiMacro.Input;
+using AkiMacro.MacroEngine;
 
-namespace GenshinMacro.ViewModels;
+namespace AkiMacro.ViewModels;
 
 public class MainWindowViewModel : INotifyPropertyChanged
 {

@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace GenshinMacro.Interop;
+namespace AkiMacro.Interop;
 
 internal static class NativeMethods
 {

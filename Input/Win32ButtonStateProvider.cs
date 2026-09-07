@@ -1,6 +1,6 @@
-using GenshinMacro.Interop;
+using AkiMacro.Interop;
 
-namespace GenshinMacro.Input;
+namespace AkiMacro.Input;
 
 public class Win32ButtonStateProvider : IButtonStateProvider
 {

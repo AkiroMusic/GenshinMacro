@@ -1,6 +1,6 @@
-using GenshinMacro.Input;
+using AkiMacro.Input;
 
-namespace GenshinMacro.MacroEngine;
+namespace AkiMacro.MacroEngine;
 
 public class DoubleClickWorker : MacroWorkerBase
 {

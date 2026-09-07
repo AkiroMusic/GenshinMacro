@@ -1,4 +1,4 @@
-<Window x:Class="GenshinMacro.AboutWindow"
+<Window x:Class="AkiMacro.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="About"
@@ -63,7 +63,7 @@
                            RenderOptions.BitmapScalingMode="HighQuality"/>
                 </Border>
 
-                <TextBlock Text="Genshin Macro"
+                <TextBlock Text="AkiMacro"
                            FontSize="16"
                            FontWeight="SemiBold"
                            Foreground="{StaticResource TextPrimary}"
@@ -78,7 +78,7 @@
                            Foreground="{StaticResource TextMuted}"
                            HorizontalAlignment="Center"
                            Margin="0,2,0,0"/>
-                <TextBlock Text="原神鼠标宏工具"
+                <TextBlock Text="通用鼠标宏工具"
                            FontSize="11"
                            Foreground="{StaticResource TextSecondary}"
                            HorizontalAlignment="Center"

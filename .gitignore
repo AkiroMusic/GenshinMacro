@@ -37,3 +37,7 @@ mimo.exe
 
 # Publish
 publish/
+publish_output/
+
+# Built executable (root)
+GenshinMacro.exe

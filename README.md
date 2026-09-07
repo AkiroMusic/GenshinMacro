@@ -1,13 +1,13 @@
-# Genshin Macro
+# AkiMacro
 
-原神鼠标宏工具 | 作者：Akiro | 版本 1.2.0
+通用鼠标宏工具 | 作者：Akiro | 版本 1.2.0
 
 ## 功能
 
 | 侧键 | 功能 | 说明 |
 |------|------|------|
-| **X1** | 龙王旋转 | 按住时鼠标平滑向右移动，20ms 轮询，20 个微步 |
-| **X2** | 双玛头宏 | 左键按住 → 右键点按 → 松开，循环两次 |
+| **X1** | 自动旋转 | 按住时鼠标平滑向右移动，20ms 轮询，20 个微步 |
+| **X2** | 双键宏 | 左键按住 → 右键点按 → 松开，循环两次 |
 
 ## 系统要求
 
@@ -17,7 +17,7 @@
 
 ## 下载
 
-从 [Releases](https://github.com/AkiroMusic/GenshinMacro/releases/latest) 下载最新版本
+从 [Releases](https://github.com/AkiroMusic/AkiMacro/releases/latest) 下载最新版本
 
 ## 从源码构建
 
@@ -25,7 +25,7 @@
 dotnet restore
 dotnet build -c Release
 dotnet test
-dotnet publish GenshinMacro.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
+dotnet publish AkiMacro.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
 ```
 
 也可直接运行 `run.bat` 快速构建并启动。
@@ -33,8 +33,8 @@ dotnet publish GenshinMacro.csproj -c Release -r win-x64 --self-contained true -
 ## 项目结构
 
 ```
-GenshinMacro.sln
-├── GenshinMacro.csproj          # WPF 项目配置
+AkiMacro.sln
+├── AkiMacro.csproj          # WPF 项目配置
 ├── App.xaml / App.xaml.cs       # 应用入口 + UAC 自动提权
 ├── MainWindow.xaml / .cs        # 主界面（无边框、自定义标题栏）
 ├── AboutWindow.xaml / .cs       # 关于窗口
@@ -52,8 +52,8 @@ GenshinMacro.sln
 │   └── Win32ButtonStateProvider.cs
 ├── MacroEngine/                 # 宏引擎
 │   ├── MacroWorkerBase.cs       # Worker 基类
-│   ├── RotationWorker.cs        # 龙王旋转宏
-│   ├── DoubleClickWorker.cs     # 双玛头宏
+│   ├── RotationWorker.cs        # 自动旋转宏
+│   ├── DoubleClickWorker.cs     # 双键宏
 │   ├── MacroCoordinator.cs      # 协调器
 │   └── InputLock.cs             # 全局输入锁
 ├── Styles/Theme.xaml            # 深色主题资源

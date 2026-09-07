@@ -2,15 +2,15 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.IO;
-using GenshinMacro.Interop;
+using AkiMacro.Interop;
 
-namespace GenshinMacro;
+namespace AkiMacro;
 
 public partial class MainWindow : Window
 {
     private static readonly string LogFile = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "GenshinMacro", "debug.log");
+        "AkiMacro", "debug.log");
 
     public MainWindow()
     {

@@ -1,8 +1,8 @@
-using GenshinMacro.Input;
-using GenshinMacro.Interop;
+using AkiMacro.Input;
+using AkiMacro.Interop;
 using Xunit;
 
-namespace GenshinMacro.Tests;
+namespace AkiMacro.Tests;
 
 public class Win32InputTests
 {

@@ -1,6 +1,6 @@
-using GenshinMacro.Input;
+using AkiMacro.Input;
 
-namespace GenshinMacro.Tests;
+namespace AkiMacro.Tests;
 
 public class FakeButtonStateProvider : IButtonStateProvider
 {

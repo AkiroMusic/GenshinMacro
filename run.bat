@@ -10,4 +10,4 @@ if %errorlevel% neq 0 (
 )
 
 echo Starting application...
-start "" "%~dp0bin\Release\net10.0-windows\GenshinMacro.exe"
+start "" "%~dp0bin\Release\net10.0-windows\AkiMacro.exe"

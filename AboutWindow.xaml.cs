@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace GenshinMacro;
+namespace AkiMacro;
 
 public partial class AboutWindow : Window
 {

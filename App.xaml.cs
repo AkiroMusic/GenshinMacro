@@ -3,7 +3,7 @@ global using System.Diagnostics;
 global using System.Security.Principal;
 global using System.IO;
 
-namespace GenshinMacro;
+namespace AkiMacro;
 
 public partial class App : Application
 {

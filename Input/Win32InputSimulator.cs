@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
-using GenshinMacro.Interop;
+using AkiMacro.Interop;
 
-namespace GenshinMacro.Input;
+namespace AkiMacro.Input;
 
 public class Win32InputSimulator : IInputSimulator
 {

@@ -1,4 +1,4 @@
-namespace GenshinMacro.Input;
+namespace AkiMacro.Input;
 
 public interface IButtonStateProvider
 {

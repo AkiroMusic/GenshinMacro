@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using GenshinMacro.Input;
+using AkiMacro.Input;
 
-namespace GenshinMacro.Tests;
+namespace AkiMacro.Tests;
 
 public class FakeInputSimulator : IInputSimulator
 {

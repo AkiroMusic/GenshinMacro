@@ -1,10 +1,10 @@
 using System.Threading;
-using GenshinMacro.Input;
-using GenshinMacro.MacroEngine;
-using GenshinMacro.ViewModels;
+using AkiMacro.Input;
+using AkiMacro.MacroEngine;
+using AkiMacro.ViewModels;
 using Xunit;
 
-namespace GenshinMacro.Tests;
+namespace AkiMacro.Tests;
 
 public class MacroEngineTests
 {

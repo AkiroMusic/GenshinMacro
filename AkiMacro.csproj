@@ -7,8 +7,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>app.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyName>GenshinMacro</AssemblyName>
-    <RootNamespace>GenshinMacro</RootNamespace>
+    <AssemblyName>AkiMacro</AssemblyName>
+    <RootNamespace>AkiMacro</RootNamespace>
     <Authors>Akiro</Authors>
   </PropertyGroup>
   <ItemGroup>
