@@ -108,6 +108,62 @@
                     </Grid>
                 </Border>
 
+                <!-- Clicker Settings -->
+                <TextBlock Text="鼠标连点器设置"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource TextSecondary}"
+                           Margin="0,0,0,6"/>
+                <Border Background="{StaticResource CardBg}"
+                        CornerRadius="4"
+                        Padding="12,10"
+                        BorderBrush="{StaticResource BorderDefault}"
+                        BorderThickness="1"
+                        Margin="0,0,0,14">
+                    <StackPanel>
+                        <Grid Margin="0,0,0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="点击间隔:"
+                                       FontSize="12"
+                                       Foreground="{StaticResource TextPrimary}"
+                                       VerticalAlignment="Center"/>
+                            <Slider Grid.Column="1" Minimum="10" Maximum="2000" Value="{Binding ClickIntervalMs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Margin="12,0,12,0" VerticalAlignment="Center"
+                                    TickFrequency="10" IsSnapToTickEnabled="True"/>
+                            <TextBlock Grid.Column="2" Text="{Binding ClickIntervalMs, StringFormat='{}{0} ms'}"
+                                       FontSize="11" Foreground="{StaticResource TextMuted}" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="最大点击次数:"
+                                       FontSize="12"
+                                       Foreground="{StaticResource TextPrimary}"
+                                       VerticalAlignment="Center"/>
+                            <Slider Grid.Column="1" Minimum="0" Maximum="10000" Value="{Binding MaxClicks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Margin="12,0,12,0" VerticalAlignment="Center"
+                                    TickFrequency="100" IsSnapToTickEnabled="True"/>
+                            <TextBlock Grid.Column="2" Text="{Binding MaxClicks, StringFormat='0=无限;{0}'}"
+                                       FontSize="11" Foreground="{StaticResource TextMuted}" VerticalAlignment="Center"/>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                            <CheckBox Content="左键" IsChecked="{Binding ClickLeft, Mode=TwoWay}"
+                                      FontSize="12" Foreground="{StaticResource TextPrimary}"
+                                      VerticalAlignment="Center" Margin="0,0,16,0"/>
+                            <CheckBox Content="右键" IsChecked="{Binding ClickRight, Mode=TwoWay}"
+                                      FontSize="12" Foreground="{StaticResource TextPrimary}"
+                                      VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
                 <!-- Auto Start -->
                 <TextBlock Text="其他"
                            FontSize="12"

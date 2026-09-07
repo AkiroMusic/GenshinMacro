@@ -1,13 +1,14 @@
 # AkiMacro
 
-通用鼠标宏工具 | 作者：Akiro | 版本 1.2.0
+通用鼠标宏工具 | 作者：Akiro | 版本 1.3.0
 
 ## 功能
 
-| 侧键 | 功能 | 说明 |
+| 触发键 | 功能 | 说明 |
 |------|------|------|
-| **X1** | 自动旋转 | 按住时鼠标平滑向右移动，20ms 轮询，20 个微步 |
-| **X2** | 双键宏 | 左键按住 → 右键点按 → 松开，循环两次 |
+| **X1** (鼠标侧键1) | 自动旋转 | 按住时鼠标平滑向右移动，20ms 轮询，20 个微步 |
+| **X2** (鼠标侧键2) | 双键宏 | 左键按住 → 右键点按 → 松开，循环两次 |
+| **F9 / F10 / F11** | 鼠标连点器 | F9启动 / F10停止 / F11切换，可配置间隔、次数、左右键 |
 
 ## 系统要求
 
@@ -38,7 +39,7 @@ AkiMacro.sln
 ├── App.xaml / App.xaml.cs       # 应用入口 + UAC 自动提权
 ├── MainWindow.xaml / .cs        # 主界面（无边框、自定义标题栏）
 ├── AboutWindow.xaml / .cs       # 关于窗口
-├── SettingsWindow.xaml / .cs    # 设置窗口（只读展示）
+├── SettingsWindow.xaml / .cs    # 设置窗口（含连点器配置）
 ├── app.manifest                 # 管理员权限清单
 ├── ViewModels/
 │   └── MainWindowViewModel.cs   # MVVM ViewModel
@@ -54,6 +55,7 @@ AkiMacro.sln
 │   ├── MacroWorkerBase.cs       # Worker 基类
 │   ├── RotationWorker.cs        # 自动旋转宏
 │   ├── DoubleClickWorker.cs     # 双键宏
+│   ├── ClickerWorker.cs         # 鼠标连点器 (F9/F10/F11)
 │   ├── MacroCoordinator.cs      # 协调器
 │   └── InputLock.cs             # 全局输入锁
 ├── Styles/Theme.xaml            # 深色主题资源
@@ -77,10 +79,28 @@ AkiMacro.sln
 - **线程安全**：`InputLock.SyncRoot` 全局锁确保同一时间只有一个 Worker 模拟输入
 - **错误处理**：`SendInput` 失败时自动停止并上报错误
 - **接口抽象**：`IInputSimulator` / `IButtonStateProvider` 支持依赖注入和测试
+- **热键驱动**：连点器使用 F9/F10/F11 全局热键，无需鼠标侧键占用
 
 ## 免责声明
 
 本工具仅供学习和娱乐使用，请勿用于任何违反游戏规则或法律法规的行为。
+
+---
+
+---
+
+## 更新日志
+
+### v1.3.0 (2026-09-07)
+- 新增鼠标连点器功能 (基于 REF/鼠标连点器 逆向重写)
+- F9 启动 / F10 停止 / F11 切换
+- 支持配置点击间隔 (10-2000ms)、最大点击次数、左右键选择
+- 设置窗口新增连点器配置面板
+- 主界面新增连点器状态显示与独立开关
+
+### v1.2.0 (2026-06-16)
+- 项目重命名：GenshinMacro → AkiMacro
+- 通用化功能描述，移除游戏特定术语
 
 ---
 
