@@ -40,4 +40,9 @@ publish/
 publish_output/
 
 # Built executable (root)
-GenshinMacro.exe
+AkiMacro.exe
+
+# Tools & References
+DecompilerTool/
+REF/
+.omo/
