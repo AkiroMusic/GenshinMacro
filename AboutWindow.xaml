@@ -68,7 +68,7 @@
                            FontWeight="SemiBold"
                            Foreground="{StaticResource TextPrimary}"
                            HorizontalAlignment="Center"/>
-                <TextBlock Text="版本 1.2.0"
+                <TextBlock Text="版本 1.4.0"
                            FontSize="11"
                            Foreground="{StaticResource TextMuted}"
                            HorizontalAlignment="Center"

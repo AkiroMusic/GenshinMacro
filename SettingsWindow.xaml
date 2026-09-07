@@ -175,10 +175,16 @@
                         Padding="12,10"
                         BorderBrush="{StaticResource BorderDefault}"
                         BorderThickness="1">
-                    <TextBlock Text="启动时自动以管理员权限运行"
-                               FontSize="12"
-                               Foreground="{StaticResource TextPrimary}"
-                               VerticalAlignment="Center"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <CheckBox IsChecked="True" IsEnabled="False"
+                                  FontSize="12" Foreground="{StaticResource TextPrimary}"
+                                  VerticalAlignment="Center"/>
+                        <TextBlock Text="启动时自动以管理员权限运行"
+                                   FontSize="12"
+                                   Foreground="{StaticResource TextPrimary}"
+                                   VerticalAlignment="Center"
+                                   Margin="8,0,0,0"/>
+                    </StackPanel>
                 </Border>
             </StackPanel>
 

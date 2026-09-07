@@ -48,16 +48,7 @@ public partial class MainWindow : Window
 
     private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
-        if (e.ClickCount == 2)
-        {
-            WindowState = WindowState == WindowState.Maximized
-                ? WindowState.Normal
-                : WindowState.Maximized;
-        }
-        else
-        {
-            DragMove();
-        }
+        DragMove();
     }
 
     private void MinimizeBtn_Click(object sender, MouseButtonEventArgs e)
@@ -72,7 +63,11 @@ public partial class MainWindow : Window
 
     private void Settings_Click(object sender, MouseButtonEventArgs e)
     {
-        var window = new SettingsWindow { Owner = this };
+        var window = new SettingsWindow
+        {
+            Owner = this,
+            DataContext = DataContext
+        };
         window.ShowDialog();
     }
 

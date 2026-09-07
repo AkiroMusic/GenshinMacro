@@ -1,6 +1,6 @@
 # AkiMacro
 
-通用鼠标宏工具 | 作者：Akiro | 版本 1.3.0
+通用鼠标宏工具 | 作者：Akiro | 版本 1.4.0
 
 ## 功能
 
@@ -87,9 +87,21 @@ AkiMacro.sln
 
 ---
 
----
-
 ## 更新日志
+
+### v1.4.0 (2026-09-07)
+- 全面代码审查与优化
+- 重写 ClickerWorker 热键逻辑（边沿检测，分离点击状态与线程生命周期）
+- 修复连点器 F9/F10/F11 热键无实际效果的问题
+- 修复热键提示被误报为错误触发 UI 错误横幅的问题
+- 修复 SettingsWindow DataContext 未绑定导致连点器配置面板不可用
+- 修复 ToggleClicker 创建新依赖实例而非复用共享依赖
+- MacroWorkerBase 实现 IDisposable，支持 Worker 重启
+- AboutWindow 版本号同步更新
+- App.xaml.cs ProcessPath null 安全检查
+- 移除 NoResize 窗口下无意义的双击最大化
+- 修复 DoubleClickWorker 错误信息错别字
+- README 修复双重分隔线
 
 ### v1.3.0 (2026-09-07)
 - 新增鼠标连点器功能 (基于 REF/鼠标连点器 逆向重写)

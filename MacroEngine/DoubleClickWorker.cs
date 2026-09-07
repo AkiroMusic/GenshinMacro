@@ -96,7 +96,7 @@ public class DoubleClickWorker : MacroWorkerBase
         if (state.HasFlag(ButtonState.Cycle1LeftDown) && !state.HasFlag(ButtonState.Cycle1LeftUp))
             inputSim.LeftButtonUp();
 
-        ReportError($"双马头宏：{action} 模拟失败，请检查是否以管理员权限运行");
+        ReportError($"双键宏：{action} 模拟失败，请检查是否以管理员权限运行");
         return false;
     }
 }

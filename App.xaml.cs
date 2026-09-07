@@ -9,7 +9,7 @@ public partial class App : Application
 {
     private static readonly string LogFile = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "GenshinMacro", "debug.log");
+        "AkiMacro", "debug.log");
 
     protected override void OnStartup(StartupEventArgs e)
     {
@@ -29,10 +29,16 @@ public partial class App : Application
         if (!IsAdministrator())
         {
             File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] Requesting elevation...\n");
+            var processPath = Environment.ProcessPath;
+            if (processPath is null)
+            {
+                File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] Cannot determine process path for elevation.\n");
+                return;
+            }
             var proc = new ProcessStartInfo
             {
                 UseShellExecute = true,
-                FileName = Environment.ProcessPath,
+                FileName = processPath,
                 Verb = "runas",
                 Arguments = string.Join(" ", e.Args)
             };

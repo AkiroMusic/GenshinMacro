@@ -267,7 +267,7 @@
                                     <Style TargetType="Ellipse">
                                         <Setter Property="Fill" Value="{StaticResource StatusIdle}"/>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsClickerRunning}" Value="True">
+                                            <DataTrigger Binding="{Binding IsClickerClicking}" Value="True">
                                                 <Setter Property="Fill" Value="{StaticResource StatusRunning}"/>
                                             </DataTrigger>
                                         </Style.Triggers>
@@ -280,7 +280,7 @@
                                         <Setter Property="Text" Value="连点器: 就绪"/>
                                         <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding IsClickerRunning}" Value="True">
+                                            <DataTrigger Binding="{Binding IsClickerClicking}" Value="True">
                                                 <Setter Property="Text" Value="连点器: 运行中"/>
                                                 <Setter Property="Foreground" Value="{StaticResource StatusRunning}"/>
                                             </DataTrigger>
@@ -292,10 +292,8 @@
                         
                         <!-- Click Counter -->
                         <TextBlock Grid.Column="1" FontSize="11" Foreground="{StaticResource TextMuted}"
-                                   VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Run Text="已点击: "/>
-                            <Run Text="{Binding ClicksPerformed}"/>
-                        </TextBlock>
+                                   VerticalAlignment="Center" HorizontalAlignment="Center"
+                                   Text="{Binding ClicksPerformed, StringFormat='已点击: {0}', Mode=OneWay}"/>
                         
                         <!-- Toggle Clicker Button -->
                         <Button Grid.Column="2" Command="{Binding ToggleClickerCommand}"
@@ -326,10 +324,10 @@
                                         </Setter.Value>
                                     </Setter>
                                     <Style.Triggers>
-                                        <DataTrigger Binding="{Binding IsClickerRunning}" Value="False">
+                                        <DataTrigger Binding="{Binding IsClickerClicking}" Value="False">
                                             <Setter Property="Content" Value="启动连点器"/>
                                         </DataTrigger>
-                                        <DataTrigger Binding="{Binding IsClickerRunning}" Value="True">
+                                        <DataTrigger Binding="{Binding IsClickerClicking}" Value="True">
                                             <Setter Property="Content" Value="停止连点器"/>
                                         </DataTrigger>
                                     </Style.Triggers>

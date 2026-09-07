@@ -30,6 +30,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
     public bool IsRotationRunning => _coordinator.IsRotationRunning;
     public bool IsDoubleClickRunning => _coordinator.IsDoubleClickRunning;
     public bool IsClickerRunning => _coordinator.IsClickerRunning;
+    public bool IsClickerClicking => _coordinator.IsClickerClicking;
     public bool AnyRunning => _coordinator.AnyRunning;
 
     public string StatusText => IsRunning ? "运行中" : "已停止";
@@ -105,6 +106,8 @@ public class MainWindowViewModel : INotifyPropertyChanged
         buttonState ??= new Win32ButtonStateProvider();
         _coordinator = new MacroCoordinator(inputSim, buttonState);
         _coordinator.OnWorkerError += OnWorkerError;
+        _coordinator.OnClickerClickingChanged += OnClickerClickingChanged;
+        _coordinator.OnClickerClicksChanged += OnClickerClicksChanged;
         ToggleCommand = new RelayCommand(Toggle);
         DismissErrorCommand = new RelayCommand(() => ErrorMessage = "");
         ToggleClickerCommand = new RelayCommand(ToggleClicker);
@@ -117,7 +120,19 @@ public class MainWindowViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(IsRotationRunning));
         OnPropertyChanged(nameof(IsDoubleClickRunning));
         OnPropertyChanged(nameof(IsClickerRunning));
+        OnPropertyChanged(nameof(IsClickerClicking));
         OnPropertyChanged(nameof(AnyRunning));
+    }
+
+    private void OnClickerClickingChanged(bool isClicking)
+    {
+        OnPropertyChanged(nameof(IsClickerClicking));
+        OnPropertyChanged(nameof(AnyRunning));
+    }
+
+    private void OnClickerClicksChanged(int count)
+    {
+        OnPropertyChanged(nameof(ClicksPerformed));
     }
 
     public void Toggle()
@@ -129,6 +144,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
             OnPropertyChanged(nameof(IsRotationRunning));
             OnPropertyChanged(nameof(IsDoubleClickRunning));
             OnPropertyChanged(nameof(IsClickerRunning));
+            OnPropertyChanged(nameof(IsClickerClicking));
             OnPropertyChanged(nameof(AnyRunning));
             return;
         }
@@ -139,22 +155,21 @@ public class MainWindowViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(IsRotationRunning));
         OnPropertyChanged(nameof(IsDoubleClickRunning));
         OnPropertyChanged(nameof(IsClickerRunning));
+        OnPropertyChanged(nameof(IsClickerClicking));
         OnPropertyChanged(nameof(AnyRunning));
     }
 
     public void ToggleClicker()
     {
-        if (_coordinator.IsClickerRunning)
+        if (_coordinator.IsClickerClicking)
         {
-            _coordinator.Clicker.Stop();
+            _coordinator.StopClickerClicking();
         }
         else
         {
-            _coordinator.Clicker.Start(
-                new Win32ButtonStateProvider(), 
-                new Win32InputSimulator());
+            _coordinator.StartClickerClicking();
         }
-        OnPropertyChanged(nameof(IsClickerRunning));
+        OnPropertyChanged(nameof(IsClickerClicking));
         OnPropertyChanged(nameof(AnyRunning));
         OnPropertyChanged(nameof(ClicksPerformed));
     }
@@ -162,6 +177,8 @@ public class MainWindowViewModel : INotifyPropertyChanged
     public void Shutdown()
     {
         _coordinator.OnWorkerError -= OnWorkerError;
+        _coordinator.OnClickerClickingChanged -= OnClickerClickingChanged;
+        _coordinator.OnClickerClicksChanged -= OnClickerClicksChanged;
 
         if (_coordinator.AnyRunning)
             _coordinator.StopAll();
@@ -170,6 +187,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
         OnPropertyChanged(nameof(IsRotationRunning));
         OnPropertyChanged(nameof(IsDoubleClickRunning));
         OnPropertyChanged(nameof(IsClickerRunning));
+        OnPropertyChanged(nameof(IsClickerClicking));
         OnPropertyChanged(nameof(AnyRunning));
     }
 
