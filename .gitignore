@@ -34,6 +34,8 @@ debug.log
 
 # AI tools
 mimo.exe
+.omo/
+.codegraph/
 
 # Publish
 publish/
