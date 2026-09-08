@@ -27,13 +27,7 @@ public class Win32InputSimulator : IInputSimulator
     private bool Send(INPUT input)
     {
         var result = NativeMethods.SendInput(1, new[] { input }, Marshal.SizeOf<INPUT>());
-        if (result == 0)
-        {
-            var error = Marshal.GetLastWin32Error();
-            System.Diagnostics.Trace.WriteLine($"SendInput failed. Win32 error: {error}");
-            return false;
-        }
-        return true;
+        return result != 0;
     }
 
     public bool MoveMouseBy(int deltaX, int deltaY)
@@ -49,13 +43,7 @@ public class Win32InputSimulator : IInputSimulator
             CreateMouseInput(MouseEventFlags.MOUSEEVENTF_RIGHTUP)
         };
         var result = NativeMethods.SendInput((uint)inputs.Length, inputs, Marshal.SizeOf<INPUT>());
-        if (result == 0)
-        {
-            var error = Marshal.GetLastWin32Error();
-            System.Diagnostics.Trace.WriteLine($"SendInput (RightClick) failed. Win32 error: {error}");
-            return false;
-        }
-        return true;
+        return result != 0;
     }
 
     public bool LeftButtonDown()

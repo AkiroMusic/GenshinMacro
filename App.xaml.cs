@@ -9,7 +9,7 @@ public partial class App : Application
 {
     private static readonly string LogFile = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "GenshinMacro", "debug.log");
+        "AkiMacro", "debug.log");
 
     protected override void OnStartup(StartupEventArgs e)
     {
@@ -24,11 +24,8 @@ public partial class App : Application
             args.Handled = true;
         };
 
-        File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] Start. Admin={IsAdministrator()}\n");
-
         if (!IsAdministrator())
         {
-            File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] Requesting elevation...\n");
             var proc = new ProcessStartInfo
             {
                 UseShellExecute = true,
@@ -48,7 +45,6 @@ public partial class App : Application
             return;
         }
 
-        File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] Running as admin, starting UI...\n");
         base.OnStartup(e);
     }
 

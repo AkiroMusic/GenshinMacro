@@ -1,8 +1,6 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- Stripe Deep Navy Theme -->
-
     <!-- Core Backgrounds -->
     <SolidColorBrush x:Key="WindowBg" Color="#1c1e54"/>
     <SolidColorBrush x:Key="CardBg" Color="#22246A"/>
@@ -13,12 +11,12 @@
     <SolidColorBrush x:Key="TextSecondary" Color="#B3FFFFFF"/>
     <SolidColorBrush x:Key="TextMuted" Color="#73FFFFFF"/>
 
-    <!-- Accent Colors (Stripe Purple) -->
+    <!-- Accent Colors -->
     <SolidColorBrush x:Key="AccentPrimary" Color="#533afd"/>
     <SolidColorBrush x:Key="AccentPrimaryHover" Color="#4434d4"/>
     <SolidColorBrush x:Key="AccentSecondary" Color="#7c5cfc"/>
 
-    <!-- Action Colors (Stripe Ruby) -->
+    <!-- Action Colors -->
     <SolidColorBrush x:Key="ActionRed" Color="#ea2261"/>
     <SolidColorBrush x:Key="ActionRedHover" Color="#d01e55"/>
 

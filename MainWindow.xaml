@@ -22,7 +22,7 @@
 
     <!-- Outer shadow layer -->
     <Border Effect="{StaticResource WindowShadow}">
-        <!-- Main chrome: Stripe Brand Dark background -->
+        <!-- Main chrome: dark background -->
         <Border Background="{StaticResource WindowBg}"
                 CornerRadius="12"
                 BorderBrush="{StaticResource BorderDefault}"

@@ -1,36 +1,26 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
-using System.IO;
 using AkiMacro.Interop;
 
 namespace AkiMacro;
 
 public partial class MainWindow : Window
 {
-    private static readonly string LogFile = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-        "AkiMacro", "debug.log");
-
     public MainWindow()
     {
-        Log("MainWindow constructor start");
         InitializeComponent();
-        Log("InitializeComponent done");
         Loaded += MainWindow_Loaded;
     }
 
     private void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
-        Log("MainWindow Loaded");
         try
         {
             ApplyMicaEffect();
-            Log("Mica applied");
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            Log($"Mica failed: {ex.Message}");
         }
     }
 
@@ -87,17 +77,5 @@ public partial class MainWindow : Window
         if (DataContext is ViewModels.MainWindowViewModel viewModel)
             viewModel.Shutdown();
         base.OnClosed(e);
-    }
-
-    private static void Log(string message)
-    {
-        try
-        {
-            File.AppendAllText(LogFile, $"[{DateTime.Now:HH:mm:ss}] MainWindow: {message}\n");
-        }
-        catch (Exception logEx)
-        {
-            System.Diagnostics.Trace.WriteLine($"Failed to write debug log: {logEx.Message}");
-        }
     }
 }

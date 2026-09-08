@@ -4,21 +4,11 @@ namespace AkiMacro.MacroEngine;
 
 public class DoubleClickWorker : MacroWorkerBase
 {
-    // Python polling interval: 0.05 (50ms)
     private const int PollIntervalMs = 50;
 
-    // Python timing (including pyautogui pause=0.1s):
-    // pa.mouseDown()           → pause 0.1s
-    // sleep(0.1)               → 0.1s
-    // pa.click(button='right') → pause 0.1s
-    // sleep(0.04)              → 0.04s
-    // pa.mouseUp()             → pause 0.1s
-    // sleep(0.03)              → 0.03s
-
-    // Actual delays in ms:
-    private const int LeftHoldMs = 200;      // 0.1s (pause) + 0.1s (sleep)
-    private const int RightClickDelayMs = 140; // 0.1s (pause) + 0.04s (sleep)
-    private const int LeftUpDelayMs = 130;   // 0.1s (pause) + 0.03s (sleep)
+    private const int LeftHoldMs = 200;
+    private const int RightClickDelayMs = 140;
+    private const int LeftUpDelayMs = 130;
 
     [Flags]
     private enum ButtonState
@@ -96,7 +86,7 @@ public class DoubleClickWorker : MacroWorkerBase
         if (state.HasFlag(ButtonState.Cycle1LeftDown) && !state.HasFlag(ButtonState.Cycle1LeftUp))
             inputSim.LeftButtonUp();
 
-        ReportError($"双马头宏：{action} 模拟失败，请检查是否以管理员权限运行");
+        ReportError($"双键宏：{action} 模拟失败，请检查是否以管理员权限运行");
         return false;
     }
 }
