@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:AkiMacro.ViewModels"
         mc:Ignorable="d"
-        Title="Genshin Macro"
+        Title="AkiMacro"
         Width="380"
         Height="440"
         Icon="/app.ico"
@@ -22,7 +22,7 @@
 
     <!-- Main chrome: Stripe Brand Dark background -->
     <Border Background="{StaticResource WindowBg}"
-            CornerRadius="8"
+            CornerRadius="12"
             BorderBrush="{StaticResource BorderDefault}"
             BorderThickness="1">
         <Border.Effect>
@@ -64,7 +64,7 @@
                                Width="18" Height="18"
                                Margin="0,0,10,0"
                                RenderOptions.BitmapScalingMode="HighQuality"/>
-                        <TextBlock Text="Genshin Macro"
+                        <TextBlock Text="AkiMacro"
                                    FontSize="14"
                                    FontWeight="SemiBold"
                                    Foreground="{StaticResource TextSecondary}"
