@@ -10,6 +10,8 @@
     <AssemblyName>AkiMacro</AssemblyName>
     <RootNamespace>AkiMacro</RootNamespace>
     <Authors>AkiMacro</Authors>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="app.ico"/>
