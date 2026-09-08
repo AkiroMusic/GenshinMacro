@@ -20,16 +20,15 @@
         <vm:MainWindowViewModel />
     </Window.DataContext>
 
-    <!-- Main chrome: Stripe Brand Dark background -->
-    <Border Background="{StaticResource WindowBg}"
-            CornerRadius="12"
-            BorderBrush="{StaticResource BorderDefault}"
-            BorderThickness="1">
-        <Border.Effect>
-            <DropShadowEffect Color="#000000" BlurRadius="32" ShadowDepth="0" Opacity="0.5"/>
-        </Border.Effect>
+    <!-- Outer shadow layer -->
+    <Border Effect="{StaticResource WindowShadow}">
+        <!-- Main chrome: Stripe Brand Dark background -->
+        <Border Background="{StaticResource WindowBg}"
+                CornerRadius="12"
+                BorderBrush="{StaticResource BorderDefault}"
+                BorderThickness="1">
 
-        <Grid>
+            <Grid>
             <!-- Subtle purple ambient glow (bottom-right) -->
             <Ellipse Width="260" Height="260"
                      HorizontalAlignment="Right"
@@ -394,5 +393,6 @@
                            Margin="0,14,0,0"/>
             </Grid>
         </Grid>
+        </Border>
     </Border>
 </Window>

@@ -39,4 +39,7 @@
     <FontFamily x:Key="FontFamily">Segoe UI</FontFamily>
     <FontFamily x:Key="FontFamilyMono">Cascadia Code, Consolas, Courier New</FontFamily>
 
+    <!-- Effects -->
+    <DropShadowEffect x:Key="WindowShadow" Color="#000000" BlurRadius="32" ShadowDepth="0" Opacity="0.5"/>
+
 </ResourceDictionary>
